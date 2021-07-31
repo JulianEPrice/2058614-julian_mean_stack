@@ -1,0 +1,33 @@
+div {
+  border-style: solid;
+  font-style: italic;
+  color: blue;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  border-style: solid;
+  color: orange;
+}
+
+.yellow {
+  color: yellow;
+}
+
+h6 {
+  border-style: solid;
+  color: pink;
+}
+
+p {
+  border-style: solid;
+  color: red;
+}
+
+footer {
+  border-style: solid;
+  color: purple;
+}
