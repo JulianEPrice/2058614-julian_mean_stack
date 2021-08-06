@@ -1,0 +1,16 @@
+.overflow-fix {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 10px;
+  display: inline-block;
+  border-radius: 10px;
+}
+
+.blogs {
+  position: absolute;
+  margin: 10px;
+}
+
+.main-panel {
+  padding: 10px;
+}
