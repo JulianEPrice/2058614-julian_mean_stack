@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+    <div class="outer_div">
+        <p>Shopping Cart</p>
+        <p id="cart_size">Cart Size: 0</p>
+        <a href="checkout.html" onclick="display()">Checkout</a>
+
+        <div>
+            <p>
+                Name: 1050 Ti Graphics Card <br>
+                Price: $550
+            </p>
+            <input id="add" type="button" value="Add" onclick="addItemToCart('1050 Ti Graphics Card', 550)")>
+        </div>
+
+        <div>
+            <p>
+                Name: 1080 Ti Graphics Card <br>
+                Price: $800
+            </p>
+            <input id="add" type="button" value="Add" onclick="addItemToCart('1080 Ti Graphics Card', 800)")>
+        </div>
+
+        <div>
+            <p>
+                Name: NVIDIA 3090 Graphics Card <br>
+                Price: $1400
+            </p>
+            <input id="add" type="button" value="Add" onclick="addItemToCart('NVIDIA 3090 Graphics Card', 1400)")>
+        </div>
+
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

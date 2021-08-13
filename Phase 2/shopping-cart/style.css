@@ -1,0 +1,7 @@
+.outer_div {
+    position: relative; 
+    left: 50%; 
+    background-color: lightgray; 
+    display: block; 
+    float: left;
+}
