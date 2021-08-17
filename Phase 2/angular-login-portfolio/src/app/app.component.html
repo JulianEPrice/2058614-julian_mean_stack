@@ -1,0 +1,56 @@
+<div>
+  <div *ngIf="showRegistration">
+    <u>Registration</u><br><br>
+    <label>First Name: </label>
+    <input type="text" #firstName>
+    <a href="" onclick="return false;" (click)="hide('login')">Login</a>
+    <br>
+    <label>Last Name: </label>
+    <input type="text" #lastName/>
+    <br>
+    <label>Username: </label>
+    <input type="text" #username/>
+    <br>
+    <label>Password: </label>
+    <input type="text" #password/>
+    <br>
+    <input type="button" value="Register" 
+    (click)="register(firstName, lastName, username, password); hide('login')"/><br/>  
+    <input type="button" value="Clear" 
+    (click)="firstName.value = ''; lastName.value = ''; username.value = ''; password.value = ''"/><br/> 
+  </div>
+  <div *ngIf="showLogin">
+    <u>Login</u><br><br>
+    <label>Username: </label>
+    <input type="text" #username/>
+    <br>
+    <label>Password: </label>
+    <input type="text" #password/>
+    <br>
+    <input id="login_button" type="button" value="Login"
+    (click)="login(username, password)"/><br/>
+    <a href="" onclick="return false;" (click)="hide('sign_up')">Sign Up</a>
+  </div>
+  <div *ngIf="showMyPortfolio">
+    <u>My Portfolio</u><br><br>
+    <label>Name: </label>
+    <input type="text" #nameRef>
+    <br>
+    <label>Phone Number: </label>
+    <input type="number" #phoneNumberRef/>
+    <br>
+    <input type="button" value="Save" 
+    (click)="addContactInformation(nameRef, phoneNumberRef)"/><br><br>
+    <p>Contact Details</p>
+
+    <table border="1">
+            <tr>
+                <th>Name</th>
+                <th>Phone Number</th>
+            </tr>
+            <tr *ngFor="let contact of contacts">
+                <td>{{contact.name}}</td>
+                <td>{{contact.phone_number}}</td>
+            </tr>
+    </table>
+</div>
