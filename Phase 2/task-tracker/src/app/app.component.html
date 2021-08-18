@@ -1,0 +1,55 @@
+<u>Task Tracker</u>
+
+<section>
+  <mat-form-field>
+    <mat-label>ID: </mat-label>
+    <input type="number" matInput name="id" #id>
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <mat-label>Name: </mat-label>
+    <input type="text" matInput name="name" #name>
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <mat-label>Task: </mat-label>
+    <input type="text" matInput name="task" #task>
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <mat-label>Deadline: </mat-label>
+    <input type="date" matInput name="deadline" #deadline>
+  </mat-form-field>
+</section>
+
+<section>
+  <div class="example-button-row">
+    <button mat-raised-button color="primary" (click)="addData(id, name, task, deadline)">Submit</button>
+    <button mat-raised-button color="primary" (click)="id.value = ''; name.value = ''; task.value = ''; deadline.value = ''">Reset</button>
+  </div>
+</section>
+
+<table mat-table [dataSource]="tasks" style="width: 75%;">
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef> ID </th>
+    <td mat-cell *matCellDef="let task"> {{ task.id }} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef> Name </th>
+    <td mat-cell *matCellDef="let task"> {{ task.name }} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="task">
+    <th mat-header-cell *matHeaderCellDef> Task </th>
+    <td mat-cell *matCellDef="let task"> {{ task.task }} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="deadline">
+    <th mat-header-cell *matHeaderCellDef> Deadline </th>
+    <td mat-cell *matCellDef="let task"> {{ task.deadline }} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
