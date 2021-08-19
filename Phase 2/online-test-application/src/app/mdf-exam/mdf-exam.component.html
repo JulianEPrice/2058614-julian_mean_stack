@@ -1,0 +1,17 @@
+<div class="centerText">
+    <h2>Angular Test using Model Driven Form</h2>
+    <form [formGroup]="myForm" (ngSubmit)="submit()">
+        <div *ngFor="let q of questionsAndAnswers">
+            <p>Question: {{q.question}}</p>
+            <mat-radio-group formControlName="{{q.question}}">
+                <mat-radio-button id="{{q.firstAnswer}}" value="{{q.firstAnswer}}">{{q.firstAnswer}}</mat-radio-button><br>
+                <mat-radio-button id="{{q.secondAnswer}}" value="{{q.secondAnswer}}">{{q.secondAnswer}}</mat-radio-button><br>
+                <mat-radio-button id="{{q.thirdAnswer}}" value="{{q.thirdAnswer}}">{{q.thirdAnswer}}</mat-radio-button><br>
+                <mat-radio-button id="{{q.fourthAnswer}}" value="{{q.fourthAnswer}}">{{q.fourthAnswer}}</mat-radio-button><br><br>
+            </mat-radio-group>
+        </div>
+        <input type="submit" value="submit"/>
+    </form>
+    <p id="result">Result: N/A</p>
+</div>
+
