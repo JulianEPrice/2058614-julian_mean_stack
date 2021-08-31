@@ -45,12 +45,11 @@ let server = http.createServer((request,response) => {
     });
     let urlInfo = url.parse(request.url,true);
     if (urlInfo.path != "/favicon.ico") {
-// if (urlInfo.path == "/TaskEntry")
 
         let input = urlInfo.query;
         
         let result = records.find(r=>r.task_id == input.task_id);
-        if (result == undefined && input.task_id != "") { // Checks if task_id exists.
+        if (result == undefined && input.task_id != undefined) { 
             response.writeHead(200,{"content-type":"text/html"});
             records.push(input);
             fs.writeFileSync("record.json", JSON.stringify(records), (error) => {
@@ -60,11 +59,11 @@ let server = http.createServer((request,response) => {
                     console.log("Data appended to file.")
                 }
             });
-        } else if (result != undefined && input.task_id != "") {
-            // console.log(result);
+            console.log(input.task_id);
+        } else if (result != undefined && input.task_id != undefined) {
+            console.log("here");
             let index = records.indexOf(result.task_id);
             records.splice(index, 1);
-            // console.log(records);
             fs.writeFileSync("record.json", JSON.stringify(records), (error) => {
                 if (error) {
                     console.log(error);
@@ -73,7 +72,6 @@ let server = http.createServer((request,response) => {
                 }
             });
         }
-
 
         fs.readFile("record.json", (error, data) => {
             if (!error) {
