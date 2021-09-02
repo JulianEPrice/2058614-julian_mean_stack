@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Socket-io Chatting</title>
+    <!-- connecting library file part of node_module folder -->
+    <script src="/socket.io/socket.io.js"></script>
+    <script type="text/JavaScript">
+        var socket = io();
+        socket.emit("hello_server","Hello Server I am Web Socket Client");
+        socket.on("client_connected",(msg)=> {
+            console.log(msg);
+        })
+        function sendMessageToServer() {
+            socket.emit("name", document.getElementById("name").value);
+            socket.emit("message", document.getElementById("message").value);
+        }
+
+        socket.on("server_message",(msg)=> {
+            document.getElementById("server_message").innerHTML += "<br><label>Server Message: </label>" + msg;
+            console.log(msg);
+        })
+
+    </script>
+</head>
+<body>
+    <h2>Socket.io Chatting</h2>
+    <label>Enter your name:</label>
+    <input id="name" type="text">
+    <label>Message</label>
+    <input id="message" type="text">
+    <input id="send" type="button" value="Send" onclick="sendMessageToServer()">
+    <p id="server_message"></p>
+</body>
+</html>
