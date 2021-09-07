@@ -59,7 +59,6 @@ let server = http.createServer((request,response) => {
                     console.log("Data appended to file.")
                 }
             });
-            console.log(input.task_id);
         } else if (result != undefined && input.task_id != undefined) {
             console.log("here");
             let index = records.indexOf(result.task_id);
@@ -106,3 +105,7 @@ let server = http.createServer((request,response) => {
 })
 
 server.listen(9090,()=>console.log("Server running on port number 9090"))
+
+/*
+Run with node record-log.js.
+*/
