@@ -1,7 +1,7 @@
 // We load the express module.
 let express = require("express");
 
-// We create the reference of epxress module.
+// We create the reference of express module.
 let app = express();
 
 // We load the http module and connect it to the express module with Server property.
